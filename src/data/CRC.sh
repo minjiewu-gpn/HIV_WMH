@@ -61,7 +61,7 @@ setup() {
     # pass the path to each scan for each subject to each job -lw
     scanIDs=$(basename $subjectPath)
     subjectIDs=$(basename $(dirname $subjectPath))
-    BASE=$LIW82/KLU/$subjectIDs/$scanIDs
+    BASE=$LIW82/MsBrain/data/$subjectIDs/$scanIDs
     IMAGEDIR="$BASE/converted/Hires/${scanIDs}_Hires.nii"
     source $FREESURFER_HOME/SetUpFreeSurfer.sh
     # Node directory that where computation will take place
