@@ -76,8 +76,8 @@ input_parser() {
         --mail-type=$mailType \
         --mail-user=msbrain2021@gmail.com \
         --mem=$mem \
-        --array=0-$files"
-    #    --ntasks-per-node=28"
+        --array=0-$files \
+        --ntasks-per-node=28"
     #${queuing_command} test.sh --subjectPath=${subjectArr[$SLURM_ARRAY_TASK_ID]}
     echo $SLURM_ARRAY_TASK_ID
     ${queuing_command} CRC.sh \
