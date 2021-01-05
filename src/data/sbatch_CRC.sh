@@ -12,7 +12,7 @@ usage() {
 $log_ToolName: Submitting script for running MPP on Slurm managed computing clusters
 
 Usage: $log_ToolName
-                    [--job-name=<name for job allocation>] default=KLU
+                    [--job-name=<name for job allocation>] default=MsBrain
                     [--partition=<request a specific partition>] default=RM-shared
                     [--exclude=<node(s) to be excluded>] default=""
                     [--nodes=<minimum number of nodes allocated to this job>] default="1"
@@ -21,7 +21,7 @@ Usage: $log_ToolName
                     [--mem=<specify the real memory required per node>] default=2gb
                     [--export=<export environment variables>] default=ALL
                     [--mail-type=<type of mail>] default=FAIL,END
-                    [--mail-user=<user email>] default=eduardojdiniz@gmail.com
+                    [--mail-user=<user email>] default=msbrain2021@gmail.com
 
                     [--printcom=command]                if 'echo' specified, will only perform a dry run.
         PARAMETERs are [ ] = optional; < > = user supplied value
@@ -59,12 +59,14 @@ input_parser() {
     set -x
     # Make slurm logs directory
     mkdir -p "$(dirname "$0")"/logs/slurm
-    mapfile -t subjectArr < fold.txt
+ #   mapfile -t subjectArr < fold.txt
+    mapfile -t subjectArr < subjectlist_01052021.txt
+  
     echo ${subjectArr[10]}
     files=${#subjectArr[@]}
     echo $files
 	queuing_command="sbatch \
-        --job-name=KLU \
+        --job-name=MsBrain \
         --partition=$partition \
         --exclude=$exclude \
         --nodes=$nodes \
@@ -72,7 +74,7 @@ input_parser() {
         --ntasks=$nTasks \
         --export=$export \
         --mail-type=$mailType \
-        --mail-user=$mailUser \
+        --mail-user=msbrain2021@gmail.com \
         --mem=$mem \
         --array=0-$files \
         --ntasks-per-node=28"
