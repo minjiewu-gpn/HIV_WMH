@@ -60,7 +60,7 @@ input_parser() {
     # Make slurm logs directory
     mkdir -p "$(dirname "$0")"/logs/slurm
  #   mapfile -t subjectArr < fold.txt
-    mapfile -t subjectArr < subjectlist_01052021.txt
+    mapfile -t subjectArr < subjectlist_01052021_rest.txt
   
     echo ${subjectArr[10]}
     files=${#subjectArr[@]}
